@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Connect Craft | Clean Energy Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+<style>
+/* ===== Reset & Base ===== */
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth;}
+body { font-family: 'Open Sans', sans-serif; line-height:1.6; background:#f2f2f2; color:#333; }
+a { text-decoration:none; color: inherit; }
+
+/* ===== Header ===== */
+header { position:sticky; top:0; background:#1E7F4C; color:#fff; z-index:1000; box-shadow:0 4px 6px rgba(0,0,0,0.1);}
+header nav { display:flex; justify-content:space-between; align-items:center; width:90%; margin:0 auto; padding:10px 0; }
+header nav .logo h2 { font-family:'Montserrat', sans-serif; font-size:1.5rem; }
+header nav .menu { display:flex; align-items:center; gap:20px; }
+header nav .menu li { list-style:none; position:relative; cursor:pointer; }
+header nav .menu li:hover > ul { display:block; }
+header nav .menu li ul { display:none; position:absolute; top:100%; left:0; background:#2e8b57; padding:10px 0; border-radius:5px; min-width:150px; z-index:100; }
+header nav .menu li ul li { padding:10px 15px; }
+header nav .menu li ul li:hover { background:#3ca371; }
+header nav .utility { display:flex; gap:15px; align-items:center; }
+header nav .utility span, header nav .utility a { cursor:pointer; }
+header nav .cta { background:#A4D07F; padding:10px 20px; border-radius:5px; font-weight:600; transition:0.3s; }
+header nav .cta:hover { background:#fff; color:#1E7F4C; }
+
+/* ===== Hero Section ===== */
+.hero { display:flex; flex-wrap:wrap; height:80vh; align-items:center; justify-content:center; text-align:center; color:#fff; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=1950&q=80') no-repeat center/cover; padding:50px 20px; animation: fadeIn 1.5s ease-in;}
+.hero h1 { font-family:'Montserrat', sans-serif; font-size:2.8rem; margin-bottom:20px; }
+.hero p { font-size:1.2rem; margin-bottom:30px; }
+.hero .hero-buttons { display:flex; gap:15px; justify-content:center; flex-wrap:wrap; }
+.hero .hero-buttons button { padding:12px 25px; border:none; border-radius:6px; font-weight:600; cursor:pointer; transition:0.3s; }
+.hero .hero-buttons button.shop { background:#A4D07F; color:#fff; }
+.hero .hero-buttons button.shop:hover { background:#fff; color:#1E7F4C; }
+.hero .hero-buttons button.quote { background:#fff; color:#1E7F4C; }
+.hero .hero-buttons button.quote:hover { background:#A4D07F; color:#fff; }
+
+/* ===== Interactive Calculator ===== */
+.calculator { background:#e6f4e6; padding:50px 20px; text-align:center; animation: fadeInUp 1.5s ease-in; }
+.calculator h2 { font-family:'Montserrat', sans-serif; margin-bottom:20px; }
+.calculator select, .calculator input { padding:10px; margin:10px 5px; border-radius:5px; border:1px solid #ccc; }
+.calculator button { padding:10px 20px; margin-top:10px; background:#1E7F4C; color:#fff; border:none; border-radius:5px; cursor:pointer; transition:0.3s; }
+.calculator button:hover { background:#A4D07F; }
+.calculator .output { margin-top:15px; font-weight:600; color:#1E7F4C; }
+
+/* ===== Solutions Showcase ===== */
+.solutions { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:50px 20px; animation: fadeInUp 1.5s ease-in; }
+.solution-card { background:#fff; border-radius:10px; padding:20px; width:250px; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+.solution-card:hover { transform:translateY(-10px); box-shadow:0 10px 20px rgba(0,0,0,0.15); }
+.solution-card img { width:80px; margin-bottom:15px; }
+.solution-card h3 { margin-bottom:10px; color:#1E7F4C; }
+.solution-card button { padding:10px 20px; border:none; border-radius:5px; background:#A4D07F; color:#fff; cursor:pointer; transition:0.3s; }
+.solution-card button:hover { background:#fff; color:#1E7F4C; border:1px solid #1E7F4C; }
+
+/* ===== Insights Hub ===== */
+.insights { background:#f2f2f2; padding:50px 20px; text-align:center; }
+.insights h2 { font-family:'Montserrat', sans-serif; margin-bottom:30px; }
+.insights .tiles { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+.insights .tile { background:#fff; border-radius:10px; padding:20px; width:300px; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s; }
+.insights .tile:hover { transform:translateY(-8px); }
+.insights .tile h4 { color:#1E7F4C; margin-bottom:10px; }
+
+/* ===== Conversations & Community ===== */
+.conversations { padding:50px 20px; background:#e6f4e6; text-align:center; }
+.conversations h2 { font-family:'Montserrat', sans-serif; margin-bottom:30px; }
+.conversations .panels { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+.conversations .panel { background:#fff; padding:20px; border-radius:10px; width:300px; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s; }
+.conversations .panel:hover { transform:translateY(-8px); }
+.conversations .panel button { margin-top:10px; padding:8px 15px; border:none; border-radius:5px; background:#1E7F4C; color:#fff; cursor:pointer; transition:0.3s; }
+.conversations .panel button:hover { background:#A4D07F; }
+
+/* ===== Trust & Safety ===== */
+.trust { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; padding:50px 20px; text-align:center; }
+.trust .icon { display:flex; flex-direction:column; align-items:center; width:150px; }
+.trust .icon img { width:60px; margin-bottom:10px; }
+.trust .icon span { font-weight:600; }
+
+/* ===== Customer Stories Carousel ===== */
+.stories { padding:50px 20px; text-align:center; background:#f2f2f2; }
+.stories h2 { font-family:'Montserrat', sans-serif; margin-bottom:30px; }
+.carousel { display:flex; overflow-x:auto; gap:20px; padding-bottom:10px; scroll-snap-type: x mandatory; }
+.carousel .story { min-width:250px; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); flex-shrink:0; scroll-snap-align: start; }
+
+/* ===== Quote Request Form ===== */
+.quote-form { padding:50px 20px; background:#f2f2f2; text-align:center; }
+.quote-form h2 { font-family:'Montserrat', sans-serif; margin-bottom:20px; }
+.quote-form form { max-width:500px; margin:0 auto; display:flex; flex-direction:column; gap:15px; }
+.quote-form input, .quote-form select, .quote-form textarea { padding:10px; border-radius:5px; border:1px solid #ccc; width:100%; }
+.quote-form button { padding:12px; border:none; border-radius:6px; background:#1E7F4C; color:#fff; font-weight:600; cursor:pointer; transition:0.3s; }
+.quote-form button:hover { background:#A4D07F; }
+.quote-form #formMessage { margin-top:10px; font-weight:600; color:#1E7F4C; }
+
+/* ===== Final CTA ===== */
+.cta-banner { background:#1E7F4C; color:#fff; text-align:center; padding:50px 20px; }
+.cta-banner button { padding:12px 25px; border:none; border-radius:6px; font-weight:600; margin:10px; cursor:pointer; transition:0.3s; }
+.cta-banner button.shop { background:#A4D07F; color:#fff; }
+.cta-banner button.shop:hover { background:#fff; color:#1E7F4C; }
+.cta-banner button.quote { background:#fff; color:#1E7F4C; }
+.cta-banner button.quote:hover { background:#A4D07F; color:#fff; }
+
+/* ===== Footer ===== */
+footer { background:#333; color:#fff; padding:40px 20px; text-align:center; }
+footer a { color:#A4D07F; margin:0 10px; }
+footer input[type=email] { padding:10px; border-radius:5px; border:none; margin-top:10px; }
+footer button { padding:10px 20px; background:#A4D07F; border:none; border-radius:5px; margin-left:5px; cursor:pointer; }
+footer button:hover { background:#fff; color:#1E7F4C; }
+
+/* ===== Animations ===== */
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeInUp { from { opacity:0; transform:translateY(20px);} to { opacity:1; transform:translateY(0); } }
+
+/* ===== Responsive ===== */
+@media(max-width:768px) {
+  header nav .menu, header nav .utility { display:none; }
+  .solutions, .insights .tiles, .conversations .panels, .trust { flex-direction:column; align-items:center; }
+  .hero { height:auto; padding:100px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header>
+<nav>
+  <div class="logo"><h2>Color Connect Craft</h2></div>
+  <ul class="menu">
+    <li>Solutions
+      <ul>
+        <li>LPG</li>
+        <li>Solar</li>
+        <li>Biogas</li>
+        <li>Boreholes</li>
+      </ul>
+    </li>
+    <li>Shop</li>
+    <li>Insights</li>
+    <li>Conversations</li>
+    <li>About Us</li>
+    <li>Contact</li>
+  </ul>
+  <div class="utility">
+    <span>🔍</span>
+    <span>👤</span>
+    <span>🛒</span>
+    <span>🌐</span>
+    <button class="cta">Get a Quote</button>
+  </div>
+</nav>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <h1>Clean Energy. Trusted Supplies. Smarter Future.</h1>
+  <p>From LPG and solar to biogas and boreholes — we power homes, farms, and businesses with affordable, safe, and sustainable energy.</p>
+  <div class="hero-buttons">
+    <button class="shop">Shop Supplies</button>
+    <button class="quote">Request a Quote</button>
+  </div>
+</section>
+
+<!-- ===== Interactive Calculator ===== -->
+<section class="calculator">
+  <h2>Estimate Your Savings & CO₂ Impact</h2>
+  <select id="calc-type">
+    <option value="LPG">LPG</option>
+    <option value="Solar">Solar</option>
+    <option value="Borehole">Borehole</option>
+    <option value="Biogas">Biogas</option>
+  </select>
+  <input type="number" id="calc-size" placeholder="Household or Business size">
+  <button onclick="calculate()">Explore My Options</button>
+  <div class="output" id="calc-output"></div>
+</section>
+
+<script>
+function calculate() {
+  const type = document.getElementById('calc-type').value;
+  const size = document.getElementById('calc-size').value;
+  if(!size) { alert('Enter your size'); return; }
+  const savings = (Math.random()*50 + 20).toFixed(0);
+  const co2 = (Math.random()*200 + 50).toFixed(0);
+  document.getElementById('calc-output').innerText = `Switching to ${type} saves you $${savings}/month and cuts ${co2} kg CO₂/year.`;
+}
+</script>
+
+<!-- ===== Solutions Showcase ===== -->
+<section class="solutions">
+  <div class="solution-card">
+    <img src="https://images.unsplash.com/photo-1581092795362-0b86b2b3e08c?auto=format&fit=crop&w=80&q=80" alt="LPG">
+    <h3>LPG Distribution</h3>
+    <p>Safe refills, reliable delivery.</p>
+    <button>Shop Now</button>
+  </div>
+  <div class="solution-card">
+    <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=80&q=80" alt="Solar">
+    <h3>Solar Energy</h3>
+    <p>Home systems, boreholes & commercial setups.</p>
+    <button>Request Quote</button>
+  </div>
+  <div class="solution-card">
+    <img src="https://images.unsplash.com/photo-1581093588401-5cfda0c6d6f4?auto=format&fit=crop&w=80&q=80" alt="Biogas">
+    <h3>Biogas Solutions</h3>
+    <p>Clean cooking from farm waste.</p>
+    <button>Learn More</button>
+  </div>
+  <div class="solution-card">
+    <img src="https://images.unsplash.com/photo-1590031589149-00a7b9e85d99?auto=format&fit=crop&w=80&q=80" alt="Boreholes">
+    <h3>Solar Boreholes</h3>
+    <p>Sustainable water for communities.</p>
+    <button>Explore Solutions</button>
+  </div>
+</section>
+
+<!-- ===== Insights Hub ===== -->
+<section class="insights">
+  <h2>Your Green Energy Knowledge Center</h2>
+  <div class="tiles">
+    <div class="tile">
+      <h4>Solar Boreholes: What Farmers Should Know</h4>
+      <p>Blog article on sustainable water solutions.</p>
+    </div>
+    <div class="tile">
+      <h4>Village Transformed by Biogas Cooking</h4>
+      <p>Case study on community impact.</p>
+    </div>
+    <div class="tile">
+      <h4>Future of LPG Distribution in Africa</h4>
+      <p>Whitepaper on clean energy distribution.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Conversations & Community ===== -->
+<section class="conversations">
+  <h2>Join the Green Energy Conversation</h2>
+  <div class="panels">
+    <div class="panel">
+      <h4>Upcoming Webinar</h4>
+      <p>Biogas for Smallholder Farmers</p>
+      <button>Register</button>
+    </div>
+    <div class="panel">
+      <h4>Community Forum</h4>
+      <p>LPG safety, solar ROI discussions</p>
+      <button>Join Discussion</button>
+    </div>
+    <div class="panel">
+      <h4>Poll</h4>
+      <p>Which solution should expand next in your region?</p>
+      <button>Vote Now</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Trust & Safety ===== -->
+<section class="trust">
+  <div class="icon"><img src="https://img.icons8.com/ios-filled/50/1E7F4C/certificate.png"/><span>Certified Installers</span></div>
+  <div class="icon"><img src="https://img.icons8.com/ios-filled/50/1E7F4C/24-hour.png"/><span>24/7 Support</span></div>
+  <div class="icon"><img src="https://img.icons8.com/ios-filled/50/1E7F4C/money.png"/><span>Transparent Pricing</span></div>
+  <div class="icon"><img src="https://img.icons8.com/ios-filled/50/1E7F4C/shield.png"/><span>Safety Guaranteed</span></div>
+</section>
+
+<!-- ===== Customer Stories Carousel ===== -->
+<section class="stories">
+  <h2>Customer Stories</h2>
+  <div class="carousel">
+    <div class="story">
+      <p>“We save $40/month with LPG.” – Amina, Aden</p>
+    </div>
+    <div class="story">
+      <p>“Our solar borehole serves 300 households.” – Ali, Lahj</p>
+    </div>
+    <div class="story">
+      <p>“Biogas cut our firewood use to zero.” – Mariam, Ta’izz</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Quote Request Form ===== -->
+<section class="quote-form" id="quote-form">
+  <h2>Request a Quote</h2>
+  <form id="requestQuote">
+    <input type="text" id="qName" placeholder="Full Name" required>
+    <input type="email" id="qEmail" placeholder="Email Address" required>
+    <input type="tel" id="qPhone" placeholder="Phone Number" required>
+    <select id="qSolution" required>
+      <option value="">Select Solution</option>
+      <option value="LPG">LPG</option>
+      <option value="Solar">Solar</option>
+      <option value="Biogas">Biogas</option>
+      <option value="Borehole">Borehole</option>
+    </select>
+    <textarea id="qNotes" placeholder="Project Size / Additional Notes" rows="4"></textarea>
+    <button type="submit">Submit Request</button>
+    <div id="formMessage"></div>
+  </form>
+</section>
+
+<script>
+document.getElementById('requestQuote').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('qName').value.trim();
+  const email = document.getElementById('qEmail').value.trim();
+  const phone = document.getElementById('qPhone').value.trim();
+  const solution = document.get
